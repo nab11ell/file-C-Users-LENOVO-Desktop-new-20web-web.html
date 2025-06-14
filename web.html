@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Web App</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298, #1e3c72);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .settings {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .settings button {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .container h1 {
+      font-size: 3em;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .menu, .submenu {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    button.option {
+      padding: 14px 30px;
+      font-size: 1.1em;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    button.option:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="settings">
+    <button onclick="alert('Settings clicked!')">⚙️ Settings</button>
+  </div>
+
+  <div class="container">
+    <h1 id="title">Welcome</h1>
+    <div class="menu" id="mainMenu">
+      <button class="option" onclick="goToPage('start')">Start</button>
+    </div>
+
+    <div class="submenu" id="subMenu" style="display:none">
+      <button class="option" onclick="alert('Opening Web...')">Open the Web</button>
+      <button class="option" onclick="alert('Landing Page')">Landing Page</button>
+      <button class="option" onclick="alert('Dashboard')">Dashboard</button>
+    </div>
+  </div>
+
+  <script>
+    function goToPage(page) {
+      if (page === 'start') {
+        document.getElementById('title').textContent = 'Main Menu';
+        document.getElementById('mainMenu').style.display = 'none';
+        document.getElementById('subMenu').style.display = 'flex';
+      }
+    }
+  </script>
+</body>
+</html>
